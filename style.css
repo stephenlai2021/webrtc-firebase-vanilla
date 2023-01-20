@@ -11,8 +11,8 @@ body {
 }
 
 video {
-  /* width: 40vw;
-  height: 30vw; */
+  width: 640px;
+  height: 480px;
   margin: 2rem 0;
   background: #2c3e50;
 }
