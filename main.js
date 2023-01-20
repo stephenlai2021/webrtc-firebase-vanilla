@@ -1,4 +1,4 @@
-import './style.css';
+import "./style.css";
 
 // v8
 import firebase from "firebase/app";
@@ -46,10 +46,20 @@ const answerButton = document.getElementById("answerButton");
 const remoteVideo = document.getElementById("remoteVideo");
 const hangupButton = document.getElementById("hangupButton");
 
+const getTurnServerCredentails = async () => {
+  const res = await fetch(
+    "https://api-sveltekit.vercel.app/api/get-turn-credentials"
+  );
+  const json = await res.json();
+  console.log("twilio token: ", json);
+};
+
 // load webcam
-window.addEventListener('load', async () => {
+window.addEventListener("load", async () => {
+  getTurnServerCredentails()
+  
   localStream = await navigator.mediaDevices.getUserMedia({
-    video: true
+    video: true,
   });
   remoteStream = new MediaStream();
 
@@ -71,7 +81,7 @@ window.addEventListener('load', async () => {
   callButton.disabled = false;
   answerButton.disabled = false;
   webcamButton.disabled = true;
-})
+});
 
 // 1. Setup media sources
 // webcamButton.onclick = async () => {
