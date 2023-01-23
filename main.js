@@ -56,7 +56,7 @@ const getTurnServerCredentails = async () => {
 
 // load webcam
 window.addEventListener("load", async () => {
-  getTurnServerCredentails()
+  // getTurnServerCredentails()
   
   localStream = await navigator.mediaDevices.getUserMedia({
     video: true,
